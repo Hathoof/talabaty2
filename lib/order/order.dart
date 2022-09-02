@@ -15,7 +15,7 @@ class _orderState extends State<order> {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      body: Column(
+      body: ListView(
         children: [
           Stack(
             children: [
@@ -63,51 +63,51 @@ class _orderState extends State<order> {
                       Row(
                         children: [
                           Text("جيد جدا",
-                            style: TextStyle(fontSize: 14,
+                            style: TextStyle(fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black54,
                                 fontFamily: 'baloo'),),
                           SizedBox(width: 5,),
-                          Icon(Icons.mood_outlined,size: 25,color: Colors.black54),
+                          Icon(Icons.mood_outlined,size: 22,color: Colors.black54),
                         ],
                       ),
                       Row(
                         children: [
                           Text("الحد الادنى للطلب 5,000 د . ع",
-                            style: TextStyle(fontSize: 14,
+                            style: TextStyle(fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black54,
                                 fontFamily: 'baloo'),),
                           SizedBox(width: 5,),
-                          Icon(Icons.local_atm_outlined,size: 25,color: Colors.black54),
+                          Icon(Icons.local_atm_outlined,size: 22,color: Colors.black54),
                         ],
                       ),
                     ],
                   ),
-                    SizedBox(width: 20,),
+                    SizedBox(width: 0,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Row(
                           children: [
                             Text("سعر التوصيل : 2500 د . ع",
-                              style: TextStyle(fontSize: 14,
+                              style: TextStyle(fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54,
                                   fontFamily: 'baloo'),),
                             SizedBox(width: 5,),
-                            Icon(Icons.local_shipping_outlined,size: 25,color: Colors.black54),
+                            Icon(Icons.local_shipping_outlined,size: 22,color: Colors.black54),
                           ],
                         ),
                         Row(
                           children: [
                             Text("العامريه",
-                              style: TextStyle(fontSize: 14,
+                              style: TextStyle(fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black54,
                                   fontFamily: 'baloo'),),
                             SizedBox(width: 5,),
-                            Icon(Icons.location_on_outlined,size: 25,color: Colors.black54),
+                            Icon(Icons.location_on_outlined,size: 22,color: Colors.black54),
                           ],
                         ),
                       ],
@@ -116,16 +116,17 @@ class _orderState extends State<order> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 106.0),
+                  padding: const EdgeInsets.only(left: 0.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text("وقت التوصيل المتوقع بين ساعا الى ساعا ونصف",
-                        style: TextStyle(fontSize: 14,
+                        style: TextStyle(fontSize: 11,
                             fontWeight: FontWeight.bold,
                             color: Colors.black54,
                             fontFamily: 'baloo'),),
                       SizedBox(width: 5,),
-                      Icon(Icons.schedule_outlined,size: 25,color: Colors.black54),
+                      Icon(Icons.schedule_outlined,size: 22,color: Colors.black54),
                     ],
                   ),
                 ),
@@ -147,7 +148,7 @@ class _orderState extends State<order> {
                     ),
                   ],
                 ),
-                SizedBox(height: 60,),
+                SizedBox(height: 40,),
                 Padding(
                   padding: const EdgeInsets.only(top:0),
                   child: Text("تعليقات خاصه",
@@ -166,9 +167,9 @@ class _orderState extends State<order> {
                     ),
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Text("اذا كان لديك اي ملاحظات تخص الطلب يرجى الكتابه هنا",
-                          style: TextStyle(fontSize: 15,
+                          style: TextStyle(fontSize:12,
                               fontWeight: FontWeight.bold,
                               color: Colors.black54,
                               fontFamily: 'baloo'),),
@@ -181,10 +182,10 @@ class _orderState extends State<order> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                    radius: 25,
+                    radius: 22,
                     backgroundColor: Colors.grey.withOpacity(0.4),
                     child:  GestureDetector(
-                      child: Icon(Icons.add,size: 40,color: Colors.black,),
+                      child: Icon(Icons.add,size: 30,color: Colors.black,),
                       onTap: (){
                         setState(() {
                           number=number+1;
@@ -197,25 +198,25 @@ class _orderState extends State<order> {
                   ),
                     SizedBox(width: 20,),
                     Container(
-                      height: 50,
-                      width: 90,
+                      height: 40,
+                      width: 80,
                       decoration: BoxDecoration(
                         color : Colors.grey.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(25),
 
                       ),
                       child: Center(
-                        child: Text("$number",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                        child: Text("$number",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                       )
                     ),
                     SizedBox(width: 20,),
                     (number>0)?
                     CircleAvatar(
-                      radius: 25,
+                      radius: 22,
                       backgroundColor: Colors.grey.withOpacity(0.4),
                       child:  GestureDetector(
                         child:
-                        Icon(Icons.remove,size: 40,color: Colors.black,),
+                        Icon(Icons.remove,size: 30,color: Colors.black,),
                         onTap: (){
                           setState(() {
                             number=number-1;
@@ -227,9 +228,9 @@ class _orderState extends State<order> {
                       )
                     )
                 :CircleAvatar(
-                      radius: 25,
+                      radius: 22,
                       backgroundColor: Colors.grey.withOpacity(0.4),
-                      child: Icon(Icons.remove,size: 40,color: Colors.grey,),
+                      child: Icon(Icons.remove,size: 35,color: Colors.grey,),
                     )
                   ],
                 ),
@@ -240,11 +241,11 @@ class _orderState extends State<order> {
                       color: Colors.red,
                       fontFamily: 'baloo'),),
                 ),
-                SizedBox(height: 80,),
+                SizedBox(height: 50,),
                 Center(
                   child: Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width-40,
+                      height: 50,
+                      width: MediaQuery.of(context).size.width-60,
                       decoration: BoxDecoration(
                         color : Colors.red,
                         borderRadius: BorderRadius.circular(30),
@@ -252,7 +253,7 @@ class _orderState extends State<order> {
                       ),
                       child: Center(
                         child: Text("اضف للسله",
-                          style: TextStyle(fontSize: 25,
+                          style: TextStyle(fontSize: 22,
                               fontWeight: FontWeight.bold,
                           fontFamily: 'baloo',
                           color: Colors.white),),

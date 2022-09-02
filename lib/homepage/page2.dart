@@ -10,6 +10,38 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
+  int count =0;
+  final List<String> listImages = [
+    'https://i0.wp.com/assets.preprod.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg',
+    'https://i2.wp.com/girlspics.cc/wp-content/uploads/2018/08/6370-1.jpg',
+    'https://setaat.com/storage/uploads/max_uploads/2019/09/1569266918.webp',
+    'https://vid.alarabiya.net/images/2021/07/22/4d08f58c-6d36-4619-a553-9db208c64b42/4d08f58c-6d36-4619-a553-9db208c64b42.jpg?crop=4:3&width=1200',
+    'https://2img.net/h/professorherm.files.wordpress.com/2009/12/090204_supermarket_savings.jpg',
+    'https://www.aljamila.com/sites/default/files/styles/640x426/public/2020-12/3828711-1291730808.jpg?h=50844e28',
+    'https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/29244350-6492-4c36-a4f6-53d40f7d5e99.jpg',
+    'https://www.taw3ia.com/wp-content/uploads/2020/02/%D9%81%D9%88%D8%A7%D8%A6%D8%AF-%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B5%D8%AD%D9%8A%D8%A9.jpg',
+  ];
+  int a=1;
+
+    List<String> listName = [
+     'المطاعم',
+    'بلوشي',
+    'حلويات و معجنات',
+    'اللحوم',
+    'ماركت',
+    'بحريه',
+    'دايت فود',
+    'الكرزات'
+  ];
+    List<String> optionname =[
+      'الكل',
+      'خصومات',
+      'يدعم المحفضه',
+      'توصيل طلباتي',
+      'توصيل مجاني',
+      'حصري',
+      'جديد'
+    ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,43 +85,24 @@ class _homepageState extends State<homepage> {
           Container(
             height: 140,
             width: MediaQuery.of(context).size.width,
-            child: ListView(
+            child: ListView.builder(
               reverse: true,
               scrollDirection: Axis.horizontal,
-              children: [
-                mainList(
-                    "https://i0.wp.com/assets.preprod.foodnetwork.ca/wp-content/uploads/2022/01/FNC_OGImage_Taiwanese-Beef-Noodle-Soup.jpg",
-                    "الـمطـاعم"),
-                mainList(
-                    "https://i2.wp.com/girlspics.cc/wp-content/uploads/2018/08/6370-1.jpg",
-                    "بلوشي"),
-                mainList(
-                    "https://setaat.com/storage/uploads/max_uploads/2019/09/1569266918.webp",
-                    "حلويات و معجنات"),
-                mainList(
-                    "https://vid.alarabiya.net/images/2021/07/22/4d08f58c-6d36-4619-a553-9db208c64b42/4d08f58c-6d36-4619-a553-9db208c64b42.jpg?crop=4:3&width=1200",
-                    "اللحوم"),
-                mainList(
-                    "https://2img.net/h/professorherm.files.wordpress.com/2009/12/090204_supermarket_savings.jpg",
-                    "ماركت"),
-                mainList(
-                    "https://www.aljamila.com/sites/default/files/styles/640x426/public/2020-12/3828711-1291730808.jpg?h=50844e28",
-                    "بحرية"),
-                mainList(
-                    "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/29244350-6492-4c36-a4f6-53d40f7d5e99.jpg",
-                    "دايت فود"),
-                mainList(
-                    "https://www.taw3ia.com/wp-content/uploads/2020/02/%D9%81%D9%88%D8%A7%D8%A6%D8%AF-%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B5%D8%AD%D9%8A%D8%A9.jpg",
-                    "الكرزات"),
-              ],
+              itemCount: 8,
+              itemBuilder: (BuildContext context, int index){
+                return mainList(
+                    listImages[index],
+                    listName[index]
+                );
+              }
             ),
           ),
           Container(
             child: Expanded(
-              child: ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  Column(
+              child: ListView.builder(
+                itemCount: 1,
+                itemBuilder: (BuildContext context, int index){
+                  return Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
@@ -120,36 +133,35 @@ class _homepageState extends State<homepage> {
                         ),
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Stack(
                             children: [
-                              Container(
-                                height: 120,
-                                width: 320,
-                                margin: const EdgeInsets.symmetric(horizontal: 8),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(
-                                            "https://modo3.com/thumbs/fit630x300/69226/1637556361/%D8%A3%D9%8A%D9%86_%D8%B5%D9%86%D8%B9%D8%AA_%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%B2%D8%A7_%D8%A3%D9%88%D9%84_%D9%85%D8%B1%D8%A9.jpg"))),
+                              Center(
+                                child: Container(
+                                  height: 140,
+                                  width: MediaQuery.of(context).size.width - 30,
+                                  margin: const EdgeInsets.symmetric(horizontal: 0),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover, image: NetworkImage("https://i0.wp.com/modo3.com/thumbs/fit630x300/51334/1435144381/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%B9%D9%85%D9%84_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9_%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%B2%D8%A7_%D8%A7%D9%84%D8%A5%D9%8A%D8%B7%D8%A7%D9%84%D9%8A%D8%A9.jpg"))),
+                                ),
                               ),
                               Positioned(
-                                  top: 8,
-                                  right: 20,
+                                  top: 10,
+                                  left: 25,
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.9),
+                                        color: Colors.white,
                                         borderRadius: BorderRadius.circular(10)),
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 5.0, vertical: 2),
+                                          horizontal: 7.0, vertical: 3),
                                       child: Text(
                                         "بروموكود",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w600,
-                                            fontSize: 18,
+                                            fontSize: 17,
                                             color: Colors.red,
                                             fontFamily: 'baloo'),
                                       ),
@@ -157,34 +169,21 @@ class _homepageState extends State<homepage> {
                                   ))
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Text(
-                              "برافو",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 20,
-                                  color: Colors.red,
-                                  fontFamily: 'baloo'),
-                            ),
-                          )
                         ],
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Container(
                         height: 38,
                         width: MediaQuery.of(context).size.width,
-                        child: ListView(
+                        child: ListView.builder(
                           reverse: true,
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            list("الكل"),
-                            list("خصومات"),
-                            list("يدعم المحفضه"),
-                            list("توصيل طلباتي"),
-                            list("توصيل مجاني"),
-                            list("حصري"),
-                            list("جديد"),
-                          ],
+                            itemCount: 7,
+                            itemBuilder: (BuildContext context, int index){
+                            return list(optionname[index]);
+                            }
                         ),
                       ),
                       SizedBox(
@@ -227,7 +226,7 @@ class _homepageState extends State<homepage> {
                         height: 10,
                       ),
                       eat("https://modo3.com/thumbs/fit630x300/3698/1589744805/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%B9%D9%85%D9%84_%D8%B4%D8%A7%D9%88%D8%B1%D9%85%D8%A7_%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC_%D8%A8%D8%A7%D9%84%D8%A8%D9%8A%D8%AA.jpg",
-                          "حرامي الشاورما",
+                          " الشاورما",
                           "سعى التوصيل: 3,000 د.ع",
                           "الغزاليه",
                           "جيد جدا"
@@ -242,48 +241,18 @@ class _homepageState extends State<homepage> {
                           "جيد جدا"
                       ),
                     ],
-                  )
-                ],
+                  );
+                }
+
               ),
             ),
           ),
-          buildTitle()
         ],
       ),
     );
   }
-  Widget buildTitle() {
-    return CustomNavigationBar(
-      iconSize: 32,
-      selectedColor: Colors.red,
-      unSelectedColor: Colors.grey,
-      backgroundColor: Colors.white.withOpacity(0.4),
-      items: [
-        CustomNavigationBarItem(
-            icon: Icon(Icons.person_pin_outlined,color: Colors.grey),
-          title: Text("الحساب",style:
-          TextStyle(fontFamily: 'baloo',fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 12),)
-        ),
-        CustomNavigationBarItem(
-          icon: Icon(Icons.receipt_long,color: Colors.grey,),
-            title: Text("الطلبات",style:
-            TextStyle(fontFamily: 'baloo',fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 12),)
-        ),
-        CustomNavigationBarItem(
-          icon: Icon(Icons.account_balance_wallet,color: Colors.grey,),
-            title: Text("المحفظه",style:
-            TextStyle(fontFamily: 'baloo',fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 12),)
-        ),
-        CustomNavigationBarItem(
-          icon: Icon(Icons.home,color: Colors.grey,),
-            title: Text("الرئيسيه",style:
-            TextStyle(fontFamily: 'baloo',fontWeight: FontWeight.bold,color: Colors.grey,fontSize: 12),)
-        ),
-      ],
-    );
-  }
 
-  Padding mainList(String url, String name) {
+  Padding mainList(String url , String name) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
@@ -296,8 +265,7 @@ class _homepageState extends State<homepage> {
                 image: DecorationImage(
                     fit: BoxFit.cover, image: NetworkImage(url))),
           ),
-          Text(
-            name,
+          Text(name,
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 17,
@@ -338,17 +306,17 @@ class _homepageState extends State<homepage> {
               Center(
                 child: Container(
                   height: 140,
-                  width: MediaQuery.of(context).size.width - 40,
-                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  width: MediaQuery.of(context).size.width - 30,
+                  margin: const EdgeInsets.symmetric(horizontal: 0),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
                           fit: BoxFit.cover, image: NetworkImage(url))),
                 ),
               ),
               Positioned(
                   top: 10,
-                  left: 30,
+                  left: 25,
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.red,
@@ -453,4 +421,5 @@ class _homepageState extends State<homepage> {
       ],
     );
   }
+
 }
